@@ -1,0 +1,32 @@
+{
+  "name": "sms-manager",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run build && node ./bin/www",
+    "dev": "npm run build && nodemon ./bin/www",
+    "build": "./node_modules/.bin/tsc"
+  },
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "@types/http-errors": "^1.6.1",
+    "@types/morgan": "^1.7.35",
+    "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.18.10",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "pug": "2.0.0-beta11",
+    "sequelize": "^5.1.0",
+    "typescript": "^3.3.3333"
+  },
+  "main": "src/ts/app.ts",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
