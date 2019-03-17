@@ -2,8 +2,7 @@ import * as createError from 'http-errors';
 import * as logger from 'morgan';
 import * as express from 'express';
 
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
+import routes from './routes';
 
 const app = express();
 
@@ -11,8 +10,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// application routes
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
