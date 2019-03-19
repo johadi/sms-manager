@@ -3,10 +3,10 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Messages', {
       id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        autoIncrement: true,
       },
       senderId: {
         type: Sequelize.INTEGER,
@@ -24,8 +24,8 @@ module.exports = {
         }
       },
       status: {
-        type: Sequelize.BOOLEAN,
-        allowNull: true
+        type: Sequelize.ENUM('sent', 'read'),
+        defaultValue: 'sent'
       },
       createdAt: {
         allowNull: false,
