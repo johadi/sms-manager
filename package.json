@@ -11,6 +11,8 @@
     "@types/express": "^4.16.1",
     "@types/http-errors": "^1.6.1",
     "@types/morgan": "^1.7.35",
+    "@types/sequelize": "^4.27.41",
+    "@types/validatorjs": "^3.15.0",
     "body-parser": "^1.18.3",
     "debug": "~2.6.9",
     "dotenv": "^7.0.0",
@@ -22,7 +24,8 @@
     "pg-hstore": "^2.3.2",
     "pug": "2.0.0-beta11",
     "sequelize": "^5.1.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "validatorjs": "^3.15.1"
   },
   "main": "src/api/app.ts",
   "devDependencies": {},
