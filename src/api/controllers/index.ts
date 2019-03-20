@@ -1,2 +1,2 @@
-export * from './contact';
-export * from './message';
+export * from './Contact';
+export * from './Message';
