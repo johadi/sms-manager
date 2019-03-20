@@ -7,6 +7,14 @@ import {Op} from "sequelize";
 
 
 export class Contact {
+
+  /**
+   * Method that adds a new contact
+   * @method add
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static add(req: express.Request, res: express.Response) {
     const validator = new Validator(req.body, db.Contact.createRules());
     if (validator.fails()) {
@@ -24,6 +32,13 @@ export class Contact {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that gets a contact details based on phone number
+   * @method get
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static get(req: express.Request, res: express.Response) {
     if (!req.params.phoneNumber) {
       return Promise.reject({code: 400, message: 'Parameter phoneNumber is required'});
@@ -40,6 +55,13 @@ export class Contact {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that updates a contact details based on phone number
+   * @method update
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static update(req: express.Request, res: express.Response) {
     if (!req.params.phoneNumber) {
       return Promise.reject({code: 400, message: 'Parameter phoneNumber is required'});
@@ -57,7 +79,14 @@ export class Contact {
       .catch((err: any) => handleError(err, res));
   }
 
-  static getAll(req: express.Request, res: express.Response) {
+  /**
+   * Method that gets all messages of a contact (both sent and received)
+   * @method getAllMessages
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
+  static getAllMessages(req: express.Request, res: express.Response) {
     if (!req.params.phoneNumber) {
       return Promise.reject({code: 400, message: 'Parameter phoneNumber is required'});
     }
@@ -82,6 +111,13 @@ export class Contact {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that gets all messages sent by contact
+   * @method getAllMessagesSentByContact
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static getAllMessagesSentByContact(req: express.Request, res: express.Response) {
     if (!req.params.phoneNumber) {
       return Promise.reject({code: 400, message: 'Parameter phoneNumber is required'});
@@ -105,6 +141,13 @@ export class Contact {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that gets all messages received by contact
+   * @method getAllMessagesReceivedByContact
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static getAllMessagesReceivedByContact(req: express.Request, res: express.Response) {
     if (!req.params.phoneNumber) {
       return Promise.reject({code: 400, message: 'Parameter phoneNumber is required'});
@@ -128,6 +171,13 @@ export class Contact {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that deletes a contact based on phone number
+   * @method delete
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static delete(req: express.Request, res: express.Response) {
     if (!req.params.phoneNumber) {
       return Promise.reject({code: 400, message: 'Parameter phoneNumber is required'});

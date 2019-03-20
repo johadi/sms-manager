@@ -4,6 +4,13 @@ import db = require('../../database/models');
 import { handleError, handleSuccess } from "../helpers/helpers";
 
 export class Message {
+  /**
+   * Method that adds new message
+   * @method signup
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static add(req: express.Request, res: express.Response) {
     const validator = new Validator(req.body, db.Message.createRules());
     if (validator.fails()) {
@@ -21,6 +28,13 @@ export class Message {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that gets a message details based on Id
+   * @method get
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static get(req: express.Request, res: express.Response) {
     if (!req.params.messageId) {
       return Promise.reject({code: 400, message: 'Parameter messageId is required'});
@@ -37,6 +51,13 @@ export class Message {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that updates a message details based on Id
+   * @method update
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static update(req: express.Request, res: express.Response) {
     if (!req.params.messageId) {
       return Promise.reject({code: 400, message: 'Parameter messageId is required'});
@@ -54,6 +75,13 @@ export class Message {
       .catch((err: any) => handleError(err, res));
   }
 
+  /**
+   * Method that deletes a message based on Id
+   * @method delete
+   * @param {object} req - request parameter
+   * @param {object} res - response parameter
+   * @return {object} response detail
+   */
   static delete(req: express.Request, res: express.Response) {
     if (!req.params.messageId) {
       return Promise.reject({code: 400, message: 'Parameter messageId is required'});

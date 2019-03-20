@@ -10,7 +10,7 @@ router.post('/api/contact', Contact.add);
 router.get('/api/contact/:phoneNumber', Contact.get);
 router.patch('/api/contact/:phoneNumber', Contact.update);
 router.delete('/api/contact/:phoneNumber', Contact.delete);
-router.get('/api/contact/messages/:phoneNumber', Contact.getAll);
+router.get('/api/contact/messages/:phoneNumber', Contact.getAllMessages);
 router.get('/api/contact/messages/sent/:phoneNumber', Contact.getAllMessagesSentByContact);
 router.get('/api/contact/messages/received/:phoneNumber', Contact.getAllMessagesReceivedByContact);
 
